@@ -7,6 +7,12 @@ const saltRounds = 10;
 
 const createUserService = async (name, email, password) => {
     try {
+        const user = await User.findOne({ email });
+        if (user) {
+            console.log('Chon email khac');
+            return null;
+        }
+
         // hash user password
         const hashPassword = await bcrypt.hash(password, saltRounds);
         // save user
