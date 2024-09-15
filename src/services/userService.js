@@ -45,6 +45,7 @@ const loginService = async (email, password) => {
                 });
                 //create an access token
                 return {
+                    EC: 0,
                     access_token,
                     user: {
                         email: user.email,
